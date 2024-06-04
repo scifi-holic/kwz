@@ -17,16 +17,15 @@ export default async function handler(
     apiSecret: process.env.OZ_RELAY_API_SECRET as string,
   };
   const provider = new DefenderRelayProvider(credentials);
-  const signer = new DefenderRelaySigner(credentials, provider, {
-    speed: "fast",
-  });
+  const signer = new DefenderRelaySigner(credentials, provider);
 
   const missionManagerContract = new ethers.Contract(
     process.env.MISSION_MANAGER_CONTRACT_ADDRESS as string,
     missionManagerAbi,
     signer
   );
-
+  console.log(process.env.MISSION_MANAGER_CONTRACT_ADDRESS);
+  console.log(walletAddress, missionId, score);
   const response = await missionManagerContract[
     "updateMission(address,uint256,uint32)"
   ](walletAddress, missionId, score);

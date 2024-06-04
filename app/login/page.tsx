@@ -24,7 +24,7 @@ export const runtime = "edge"
 export default function Page() {
   const search = useSearchParams()
   const { push } = useRouter()
-  const teamId = search.get("teamId") ?? undefined
+  const teamId = search?.get("teamId") ?? undefined
 
   const { mutateAsync: login, isPending } = useMutation({
     mutationFn: async () => {

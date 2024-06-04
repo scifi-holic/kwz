@@ -9,7 +9,7 @@ type Params = {
 }
 
 export function useTeam(params?: Params) {
-  const teamId = params?.teamId ?? useParams<Params>().teamId
+  const teamId = params?.teamId ?? useParams<Params>()?.teamId
 
   assert(teamId, "teamId is required")
 
