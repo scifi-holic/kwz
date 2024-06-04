@@ -37,7 +37,7 @@ contract MissionManager is Ownable {
         rewardToken = IERC20(_rewardTokenAddress);
         stakeToken = IERC20(_stakeTokenAddress);
         vaultAddress = _vaultAddress;
-        setupOwner(msg.sender);
+        _setupOwner(msg.sender);
     }
 
     function relayer() public view returns (address) {
